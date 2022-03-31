@@ -1,0 +1,99 @@
+@font-face {
+font-family: Cirrus;
+src: url('data/CirrusCumulus.woff');
+}
+
+@font-face {
+    font-family: Gambetta;
+    src: url('../fonts/Gambetta-Regular.woff2') format('woff2'),
+         url('../fonts/Gambetta-Regular.woff') format('woff'),
+         url('../fonts/Gambetta-Regular.ttf') format('truetype');
+         font-weight: 400;
+         font-display: swap;
+         font-style: normal;
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    overflow-x: auto;
+
+}
+
+.section{
+
+    height: 100vh;
+    border-top: none;
+    border-right: 2px solid rgb(150, 150, 150);
+    overflow-y: auto;
+    flex: 1;
+    background-color:white;
+
+    /* transition: min-width 0.1s; */
+    transition: 0.1s;
+    transition-timing-function: ease-in-out;
+     
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 0.75vw;
+
+}
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+    /* font-size: 90%; */
+    /* font-size: 1vw */
+}
+
+h1{
+    /* font-size: 1.5vw; */
+    font-family: Cirrus;
+    text-align: center;
+    color:blue;
+}
+
+.section:hover{  
+    flex: 4;
+    font-size: 1.5vw;
+    padding-left: 18px;
+    padding-right: 18px;
+    /* min-width:32%; */   
+}
+
+a {
+    color: blue;
+    font-style: italic;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.section::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper::-webkit-scrollbar {
+    height: 1.5vh;
+    background: rgb(240, 240, 240);
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(175, 175, 175);  
+}
+
+
