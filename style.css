@@ -19,11 +19,24 @@ html, body {
 }
 
 .wrapper{
-    margin: 0;
+    margin: 0; 
     padding: 0;
+    margin-left: 18%;
 
     display: flex;
     overflow-x: auto;
+
+}
+
+.info{
+    position: absolute;
+    width:18%;
+  
+    box-sizing: border-box;
+    padding-left: 18px;
+    padding-right: 18px;
+   
+    font-size:0.75vw;
 
 }
 
@@ -31,7 +44,8 @@ html, body {
 
     height: 100vh;
     border-top: none;
-    border-right: 1px solid rgb(150, 150, 150);
+    border-left: 1px solid rgb(150, 150, 150);
+   
     overflow-y: auto;
     flex: 1;
     background-color:white;
@@ -40,8 +54,8 @@ html, body {
     transition: 0.1s;
     transition-timing-function: ease-in-out;
      
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
     font-size: 0.75vw;
 
 }
@@ -58,6 +72,8 @@ h1{
     text-align: center;
     color:blue;
 }
+
+
 
 .section:hover{  
     flex: 4;
