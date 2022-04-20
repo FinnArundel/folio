@@ -4,6 +4,11 @@ src: url('data/CirrusCumulus.woff');
 }
 
 @font-face {
+    font-family: Uncut;
+    src: url('data/UncutSans-Regular.woff');
+    }
+
+@font-face {
     font-family: Gambetta;
     src: url('../fonts/Gambetta-Regular.woff2') format('woff2'),
          url('../fonts/Gambetta-Regular.woff') format('woff'),
@@ -16,6 +21,8 @@ src: url('data/CirrusCumulus.woff');
 html, body {
     margin: 0;
     padding: 0;
+    min-width: 2400px;
+   
 }
 
 .wrapper{
@@ -45,7 +52,7 @@ html, body {
 
     height: 100vh;
     border-top: none;
-    border-left: 1px solid rgb(150, 150, 150);
+    /* /border-left: 1px solid rgb(150, 150, 150); */
    
     overflow-y: auto;
     flex: 1;
@@ -90,6 +97,7 @@ h1{
 }
 
 a {
+    font-family: 'IBM Plex Mono', monospace;
     color: blue;
     font-style: italic;
 }
