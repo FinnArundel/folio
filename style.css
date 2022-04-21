@@ -115,7 +115,7 @@ img {
     background: rgb(175, 175, 175);  
 }
 
-@media (max-width: 130em){
+@media (max-width: 70em){
     .info {
         box-sizing: border-box;
         padding-left: 5vw;
