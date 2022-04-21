@@ -95,7 +95,7 @@ a {
 img {
     width: 100%;
     height: auto;
-    max-width: 100%;
+    /* max-width: 100%; */
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -143,9 +143,10 @@ img {
         
     }
 
-    .img {
-   
-
+    img {
+        width:fit-content;
+        padding-left: 2vw;
+        padding-right: 2vw;
     }
 
     .section:hover{  
@@ -155,11 +156,10 @@ img {
         font-size: 0.75vw;
     }
 
-    h1{ 
-        box-sizing: border-box;
+    h1{        
         font-size: 10vw;
+        padding-right: 10vw;
         text-align: left;
-        margin-right: 15vw;
     }
 
     p{
@@ -168,7 +168,9 @@ img {
     }
 
     .section p{
-        top: 50px;
+        
+        min-width:fit-content;
+        position: static;
     }
 }
 
