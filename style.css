@@ -168,7 +168,7 @@ img {
     }
 
     .section p{
-        
+        padding-top: 5vw;
         min-width:fit-content;
         position: static;
     }
