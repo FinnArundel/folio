@@ -126,15 +126,14 @@ img {
 
     .wrapper {
         margin-left: 0;
-        position: relative;
+
         flex-direction: column;
-        height: 350vh;
-        overflow-y: auto;
+        height: 360vh;
+
         
     }
 
     .section {
-
         padding-left: 5vw;
         display: inline-flex;   /* makes the slides go left to right*/ 
         overflow-y:hidden;
@@ -166,14 +165,16 @@ img {
     }
 
     p{
-        font-size: clamp(1rem, 2.5vw, 2rem);
+        font-size: clamp(1rem, 1.5vw, 2rem);
         text-align: left;    
     }
 
     .section p{
         padding-top: 2vh;
-        min-width:fit-content;
-        position: static;
+        padding-right: 2vh;
+        min-width: fit-content;
+        
+       
     }
 }
 
