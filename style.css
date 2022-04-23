@@ -159,13 +159,13 @@ img {
     }
 
     h1{        
-        font-size: 36pt;
+        font-size: 28pt;
         padding-right: 10vw;
         text-align: left;
     }
 
     p{
-        font-size: 12pt;
+        font-size: 10pt;
         text-align: left;    
         -webkit-text-size-adjust: 100%;
 
