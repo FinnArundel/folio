@@ -114,8 +114,8 @@ img {
         margin-left: 0;
 
         flex-direction: column;
+        height: 175em;
         /* height: 360vh; */
-        height: 700vw;
 
         
     }
