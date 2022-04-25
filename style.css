@@ -2,21 +2,7 @@
 font-family: Cirrus;
 src: url('data/CirrusCumulus.woff');
 }
-
-@font-face {
-    font-family: Uncut;
-    src: url('data/UncutSans-Regular.woff');
-    }
-
-@font-face {
-    font-family: Gambetta;
-    src: url('../fonts/Gambetta-Regular.woff2') format('woff2'),
-         url('../fonts/Gambetta-Regular.woff') format('woff'),
-         url('../fonts/Gambetta-Regular.ttf') format('truetype');
-         font-weight: 400;
-         font-display: swap;
-         font-style: normal;
-  }
+  
 
 html, body {
     margin: 0;
@@ -128,7 +114,8 @@ img {
         margin-left: 0;
 
         flex-direction: column;
-        height: 360vh;
+        /* height: 360vh; */
+        height: 700vw;
 
         
     }
@@ -173,8 +160,8 @@ img {
     }
 
     .section p{
-        padding-top: 2vh;
-        padding-right: 2vh;
+        padding-top: 18pt;
+        padding-right: 5vw;
         min-width: 95%;
        
     }
