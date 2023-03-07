@@ -44,6 +44,8 @@ html, body {
     padding-right: 0.75vw;
     font-size: 0.75vw;
 
+   scrollbar-width: none;
+
 }
 
 p {
