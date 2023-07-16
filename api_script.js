@@ -3,8 +3,7 @@ const arenaUrls = [
   "https://www.are.na/finn-arundel/testing-grounds-journal"
 ];
 
-const accessToken = "yVuMHfLmuXUOlC-UhqDHlQZU_N1KHOD4wXQe-up54MI"; // Replace with your Are.na access token
-const apiUrl = `https://api.are.na/v2/channels/live?access_token=${accessToken}`;
+const apiUrl = "https://api.are.na/v2/channels/live";
 
 // Create main container
 const mainContainer = document.createElement("div");
@@ -78,7 +77,7 @@ async function updateData() {
 updateData();
 
 // Connect to the Are.na Real-time API WebSocket
-const socket = new WebSocket(`wss://realtime.are.na/socket/websocket?vsn=2.0.0&token=${accessToken}`);
+const socket = new WebSocket("wss://realtime.are.na/socket/websocket?vsn=2.0.0");
 
 socket.addEventListener("open", () => {
   console.log("WebSocket connection established.");
