@@ -3,7 +3,7 @@ const arenaUrls = [
   "https://www.are.na/finn-arundel/testing-grounds-journal"
 ];
 
-const apiUrl = "https://api.are.na/v2/channels/live";
+const apiUrls = arenaUrls.map(url => `https://api.are.na/v2/channels/${url.split("/").pop()}?per=20`);
 
 // Create main container
 const mainContainer = document.createElement("div");
@@ -23,38 +23,38 @@ for (let i = 0; i < arenaUrls.length; i++) {
   mainContainer.appendChild(displayContainer);
 }
 
-async function getData() {
+async function getData(apiUrl) {
   const response = await fetch(apiUrl);
   const data = await response.json();
-  return data.contents;
+  return data;
 }
 
-function updateDisplay(container, newData) {
+function updateDisplay(container, data) {
   container.innerHTML = ""; // Clear existing content
 
-  for (let i = newData.length - 1; i >= 0; i--) {
-    if (newData[i].class === "Image" || newData[i].class === "Text") {
+  for (let i = data.contents.length - 1; i >= 0; i--) {
+    if (data.contents[i].class === "Image" || data.contents[i].class === "Text") {
       const divBlock = document.createElement("h2");
       divBlock.setAttribute("id", `newDiv_${i}`);
-      divBlock.innerHTML = newData[i].title;
+      divBlock.innerHTML = data.contents[i].title;
       container.appendChild(divBlock);
 
       const dateBlock = document.createElement("p");
       dateBlock.setAttribute("id", `newDate_${i}`);
-      const parts = newData[i].connected_at.slice(0, 10).split("-");
+      const parts = data.contents[i].connected_at.slice(0, 10).split("-");
       const rearrangedDate = `${parts[2]}.${parts[1]}.${parts[0]}`;
       dateBlock.innerHTML = rearrangedDate;
       container.appendChild(dateBlock);
 
-      if (newData[i].class === "Image") {
+      if (data.contents[i].class === "Image") {
         const imgBlock = document.createElement("img");
         imgBlock.setAttribute("id", `newImg_${i}`);
-        imgBlock.src = newData[i].image.large.url;
+        imgBlock.src = data.contents[i].image.large.url;
         container.appendChild(imgBlock);
-      } else if (newData[i].class === "Text") {
+      } else if (data.contents[i].class === "Text") {
         const textBlock = document.createElement("p");
         textBlock.setAttribute("id", `newText_${i}`);
-        textBlock.innerHTML = marked.parse(newData[i].content);
+        textBlock.innerHTML = marked.parse(data.contents[i].content);
         container.appendChild(textBlock);
       }
     }
@@ -63,10 +63,14 @@ function updateDisplay(container, newData) {
 
 async function updateData() {
   try {
-    const newData = await getData();
-    for (let i = 0; i < arenaUrls.length; i++) {
+    const timestamp = Date.now(); // Generate cache-busting timestamp
+    
+    for (let i = 0; i < apiUrls.length; i++) {
+      const apiUrl = `${apiUrls[i]}&_=${timestamp}`; // Append timestamp to API URL
       const displayContainer = displayContainers[i];
-      updateDisplay(displayContainer, newData);
+
+      const data = await getData(apiUrl);
+      updateDisplay(displayContainer, data);
     }
   } catch (error) {
     console.error(error);
@@ -76,27 +80,5 @@ async function updateData() {
 // Update the data initially
 updateData();
 
-// Connect to the Are.na Real-time API WebSocket
-const socket = new WebSocket("wss://realtime.are.na/socket/websocket?vsn=2.0.0");
-
-socket.addEventListener("open", () => {
-  console.log("WebSocket connection established.");
-});
-
-socket.addEventListener("message", event => {
-  const message = JSON.parse(event.data);
-  if (message.event === "phx_reply") {
-    console.log("Authentication successful.");
-  } else if (message.event === "new_content") {
-    console.log("New content received:", message.payload);
-    const channelSlug = message.payload.source;
-    const displayContainer = displayContainers.find(container => container.id.includes(channelSlug));
-    if (displayContainer) {
-      updateData();
-    }
-  }
-});
-
-socket.addEventListener("close", () => {
-  console.log("WebSocket connection closed.");
-});
+// Periodically update the data every 10 seconds (adjust as needed)
+setInterval(updateData, 10000);
