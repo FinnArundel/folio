@@ -74,7 +74,7 @@ async function updateData(apiUrl, displayContainer) {
 }
 
 function connectToWebSocket() {
-  const accessToken = "9NQlktn1RrhYnjMy6X5o0njN1B4E0Ybr83BW-bFWMew"; // Replace with your Are.na access token
+  const accessToken = "SRvnWY-ZFtAZM68Li5TrXv0PNzbGkFosR2fNQj_NGow"; // Replace with your Are.na access token
   const socket = new WebSocket(`wss://realtime.are.na/socket/websocket?vsn=2.0&access_token=${accessToken}`);
 
   socket.onopen = () => {
