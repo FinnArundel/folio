@@ -24,8 +24,10 @@ for (let i = 0; i < arenaUrls.length; i++) {
 }
 
 async function getData(apiUrl, displayContainer) {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+
+    displayContainer.innerHTML = ""; // Clear existing content
   
     for (let i = data.contents.length - 1; i >= 0; i--) {
       if (data.contents[i].class === "Image" || data.contents[i].class === "Text") {
@@ -56,12 +58,17 @@ async function getData(apiUrl, displayContainer) {
     }
   }
   
-for (let i = 0; i < apiUrls.length; i++) {
-    getData(apiUrls[i], displayContainers[i])
+async function updateData() {
+  for (let i = 0; i < apiUrls.length; i++) {
+    await getData(apiUrls[i], displayContainers[i])
       .catch(error => {
         console.error(error);
-      })
-      .then(response => {
-        console.log(`Display ${i + 1} done!`);
       });
   }
+}
+
+// Update the data initially
+updateData();
+
+// Periodically update the data every 10 seconds (adjust as needed)
+setInterval(updateData, 10000);
