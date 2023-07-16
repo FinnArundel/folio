@@ -67,8 +67,44 @@ async function updateData() {
   }
 }
 
-// Update the data initially
-updateData();
+async function updateData(apiUrl, displayContainer) {
+  await getData(apiUrl, displayContainer).catch(error => {
+    console.error(error);
+  });
+}
 
-// Periodically update the data every 10 seconds (adjust as needed)
-setInterval(updateData, 10000);
+function connectToWebSocket() {
+  const accessToken = "9NQlktn1RrhYnjMy6X5o0njN1B4E0Ybr83BW-bFWMew"; // Replace with your Are.na access token
+  const socket = new WebSocket(`wss://realtime.are.na/socket/websocket?vsn=2.0&access_token=${accessToken}`);
+
+  socket.onopen = () => {
+    console.log("WebSocket connection established");
+    for (let i = 0; i < apiUrls.length; i++) {
+      const channelIdentifier = `channel:${apiUrls[i].split("/").pop()}`;
+      socket.send(JSON.stringify({ topic: channelIdentifier, event: "phx_join" }));
+    }
+  };
+
+  socket.onmessage = event => {
+    const message = JSON.parse(event.data);
+    if (message.event === "content_created") {
+      const channelIdentifier = message.payload.channel.identifier;
+      const index = apiUrls.findIndex(url => url.includes(channelIdentifier));
+      if (index !== -1) {
+        const apiUrl = apiUrls[index];
+        const displayContainer = displayContainers[index];
+        updateData(apiUrl, displayContainer);
+      }
+    }
+  };
+
+  socket.onclose = () => {
+    console.log("WebSocket connection closed");
+  };
+}
+
+// Initialize the WebSocket connection and update data initially
+connectToWebSocket();
+for (let i = 0; i < apiUrls.length; i++) {
+  updateData(apiUrls[i], displayContainers[i]);
+}
