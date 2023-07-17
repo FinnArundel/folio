@@ -3,7 +3,7 @@ const arenaUrls = [
   "https://www.are.na/finn-arundel/testing-grounds-board"
 ];
 
-const apiUrls = arenaUrls.map(url => `https://api.are.na/v2/channels/${url.split("/").pop()}?per=20`);
+const apiUrls = arenaUrls.map(url => `https://api.are.na/v2/channels/${url.split("/").pop()}?per=100`);
 
 // Create main container
 const mainContainer = document.createElement("div");
