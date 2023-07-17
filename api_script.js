@@ -1,6 +1,6 @@
 const arenaUrls = [
-  "https://www.are.na/finn-arundel/testing-grounds-board",
-  "https://www.are.na/finn-arundel/testing-grounds-journal"
+  "https://www.are.na/finn-arundel/testing-grounds-journal",
+  "https://www.are.na/finn-arundel/testing-grounds-board"
 ];
 
 const apiUrls = arenaUrls.map(url => `https://api.are.na/v2/channels/${url.split("/").pop()}?per=20`);
