@@ -37,7 +37,7 @@ function updateDisplay(container, data) {
   container.innerHTML = ""; // Clear existing content
 
   for (let i = data.contents.length - 1; i >= 0; i--) {
-    if (data.contents[i].class === "Image" || data.contents[i].class === "Text") {
+    if (data.contents[i].class === "Image" || data.contents[i].class === "Text" || data.contents[i].class === "Link") {
       const divBlock = document.createElement("h2");
       divBlock.setAttribute("id", `newDiv_${i}`);
       divBlock.innerHTML = data.contents[i].title;
@@ -67,10 +67,30 @@ function updateDisplay(container, data) {
         textBlock.setAttribute("id", `newText_${i}`);
         textBlock.innerHTML = marked.parse(data.contents[i].content);
         container.appendChild(textBlock);
+
+      } else if (data.contents[i].class === "Link") { 
+        const webBlock = document.createElement("div");
+        webBlock.setAttribute("id", `newWeb_${i}`);
+        webBlock.setAttribute("class", `newWeb`);
+        container.appendChild(webBlock);
+        // webBlock.setAttribute("href", `${data.contents[i].source.url}`)
+        webBlock.style.backgroundImage = `url(${data.contents[i].image.display.url})`;
+
+        const linkElement = document.createElement("a");
+        linkElement.setAttribute("href", `${data.contents[i].source.url}`);
+        linkElement.setAttribute("target", `_blank`);
+        
+        // Append the div to the <a> element
+        linkElement.appendChild(webBlock);
+    
+        // Append the <a> element to the container
+        container.appendChild(linkElement);
       }
+      }
+      
     }
   }
-}
+
 
 async function updateData() {
   try {
