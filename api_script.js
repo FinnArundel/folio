@@ -26,8 +26,12 @@ for (let i = 0; i < arenaUrls.length; i++) {
 async function getData(apiUrl) {
   const response = await fetch(apiUrl);
   const data = await response.json();
+  console.log(data)
   return data;
+
 }
+
+
 
 function updateDisplay(container, data) {
   container.innerHTML = ""; // Clear existing content
@@ -47,10 +51,17 @@ function updateDisplay(container, data) {
       container.appendChild(dateBlock);
 
       if (data.contents[i].class === "Image") {
+
+        const textBlock = document.createElement("p");
+        textBlock.setAttribute("id", `newDisc_${i}`);
+        textBlock.innerHTML = marked.parse(data.contents[i].description_html);
+        container.appendChild(textBlock);
+
         const imgBlock = document.createElement("img");
         imgBlock.setAttribute("id", `newImg_${i}`);
         imgBlock.src = data.contents[i].image.large.url;
         container.appendChild(imgBlock);
+
       } else if (data.contents[i].class === "Text") {
         const textBlock = document.createElement("p");
         textBlock.setAttribute("id", `newText_${i}`);
