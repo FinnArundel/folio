@@ -5,15 +5,13 @@
 
 #mainContainer {
     display: flex;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    gap: 1rem;
 }
 
 #displayContainer_0, #displayContainer_1 {
     width: 50%;
     height: 100dvh;
     overflow: scroll;
+    padding: 0 1rem 0 1rem;
     box-sizing: border-box;
 }
 
