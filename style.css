@@ -85,8 +85,8 @@ img {
     min-width: 800px;
     min-height: auto;
     /* max-width: 100%; */
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .section::-webkit-scrollbar {
