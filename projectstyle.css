@@ -1,0 +1,103 @@
+@font-face {
+font-family: Cirrus;
+src: url("/data/CirrusCumulus.woff");
+}
+  
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    margin: 0; 
+    padding: 0;
+    margin-left: 18%;
+
+    display: flex;
+    overflow-x: auto;
+
+}
+
+.info{
+    position: fixed;
+    width:18%;
+   
+    box-sizing: border-box;
+    padding-left: 0.75vw;
+    padding-right: 0.75vw;
+   
+    font-size:0.75vw;
+
+}
+
+.content{
+    margin-left: 18%;
+    padding: 10px 100px 10px 100px;
+
+}
+
+p {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+h1{
+    /* font-size: 1.5vw; */
+    font-family: Cirrus;
+    color:blue;
+    padding-right: 40px;
+    min-width: 400px;
+}
+
+.text-container {
+    padding: 20px 50px 20px 50px;
+    display: flex;
+}
+
+.info h1 {
+    font-family: Cirrus;
+    text-align: left;
+    color:black;
+}
+
+
+.section:hover{  
+    flex: 4;
+    font-size: 1.5vw;
+    padding-left: 0.75vw;
+    padding-right: 0.75vw;
+
+}
+
+a {
+    font-family: 'IBM Plex Mono', monospace;
+    color: blue;
+    font-style: italic;
+}
+
+img {
+    width: 100%;
+    min-height: auto;
+}
+
+.img-container {
+    display: flex;
+    gap: 10px;
+}
+
+.section::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper::-webkit-scrollbar {
+    height: 1.5vh;
+    background: rgb(240, 240, 240);
+    border-top: 1px solid rgb(175, 175, 175);
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: rgb(175, 175, 175);  
+}
+
+
