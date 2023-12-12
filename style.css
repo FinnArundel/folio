@@ -114,9 +114,8 @@ img {
 
     .wrapper {
         margin-left: 0;
-
         flex-direction: column;
-        height: 150em;
+        min-height: 120em; 
         /* height: 360vh; */
 
         
@@ -134,6 +133,8 @@ img {
     img { 
         width:auto;
         height: 100%;
+        max-height: 150em ;
+        max-width: 100%;
         padding-left: 2vw;
         padding-right: 2vw;
         padding-top: 0;
