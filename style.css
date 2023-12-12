@@ -115,7 +115,7 @@ img {
     .wrapper {
         margin-left: 0;
         flex-direction: column;
-        min-height: 120em; 
+        /* min-height: 120em;  */
         /* height: 360vh; */
 
         
@@ -127,6 +127,8 @@ img {
         overflow-y:hidden;
         padding-top: 2vw;
         padding-bottom: 2vw;
+        min-height: 120em;
+
         
     }
 
@@ -135,6 +137,7 @@ img {
         height: 100%;
         max-height: 150em ;
         max-width: 100%;
+        
         padding-left: 2vw;
         padding-right: 2vw;
         padding-top: 0;
