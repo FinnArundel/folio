@@ -131,8 +131,8 @@ img {
     }
 
     img { 
-        width: auto;
-        height: 100%;
+        width: unset;
+        height: unset;
         max-height: 120em;
         max-width: 100%;
         
