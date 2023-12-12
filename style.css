@@ -132,7 +132,7 @@ img {
 
     img { 
         width: unset;
-        height: unset;
+        height: 100%;
         max-height: 120em;
         max-width: 100%;
         
