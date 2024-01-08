@@ -124,10 +124,10 @@ img {
     }
 
     img { 
-
-        height:auto;
+        object-fit: contain;
         width: 98%;
-
+        height: auto;
+        
         padding-left: 2vw;
         padding-right: 2vw;
         padding-top: 0;
