@@ -119,6 +119,7 @@ img {
         padding-left: 5vw;
         display: inline-flex;   /* makes the slides go left to right*/ 
         align-items: flex-start;
+        padding-top: 2vw;
         padding-bottom: 2vw;
         min-height: 120em; 
     }
@@ -130,6 +131,7 @@ img {
         
         padding-left: 2vw;
         padding-right: 2vw;
+        padding-top: 2vw;
         padding-bottom: 0;
     }
 
