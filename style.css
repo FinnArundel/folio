@@ -125,9 +125,11 @@ img {
     }
 
     img { 
-        width: unset;
-        height: 100%;
+        display: block;
+        width: auto;
+        height: auto;
         max-width: 90%;
+        max-height: 120em;
   
         padding-left: 2vw;
         padding-right: 2vw;
