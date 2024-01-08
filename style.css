@@ -81,7 +81,7 @@ a {
 
 img {
     width: 100%;
-    min-height: auto;
+
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -118,18 +118,16 @@ img {
     .section {
         padding-left: 5vw;
         display: inline-flex;   /* makes the slides go left to right*/ 
-        overflow-y:hidden;
         padding-top: 2vw;
         padding-bottom: 2vw;
         min-height: 120em; 
     }
 
     img { 
-        display: block;
-        max-width: 90%;
-        height: auto;
         max-height: 120em;
-  
+        height: auto;
+        width: 90%;
+      
         padding-left: 2vw;
         padding-right: 2vw;
         padding-top: 0;
