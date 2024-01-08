@@ -124,6 +124,7 @@ img {
     }
 
     img { 
+        min-height: unset;
         height:auto;
         width: 300px;
 
