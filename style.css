@@ -126,9 +126,8 @@ img {
 
     img { 
         display: block;
-        width: auto;
-        height: auto;
         max-width: 90%;
+        height: auto;
         max-height: 120em;
   
         padding-left: 2vw;
