@@ -124,9 +124,9 @@ img {
     }
 
     img { 
-        min-height: unset;
+
         height:auto;
-        width: 300px;
+        width: 98%;
 
         padding-left: 2vw;
         padding-right: 2vw;
